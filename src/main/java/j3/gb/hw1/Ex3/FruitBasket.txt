@@ -1,0 +1,62 @@
+package j3.gb.hw1.Ex3; резервный код для себя
+
+public class FruitBasket {
+    public static void main(String[] args) {
+        System.out.println();// Просто разделитель в консоли
+
+        Apple apple = new Apple();
+        Orange orange = new Orange();
+        Box<Fruits> fruitBox = new Box<>();
+
+
+        fruitBox.putinBox(apple);
+        fruitBox.putinBox(apple);
+        fruitBox.putinBox(apple);
+        fruitBox.putinBox(apple);
+        fruitBox.putinBox(orange);
+        fruitBox.putinBox(orange);
+
+        System.out.println(fruitBox.getClass() + ": " + fruitBox + '\n');
+
+        Box<Apple> appleBox = new Box<>();
+        appleBox.putinBox(apple);
+
+        Object o = fruitBox.getFruits();
+        System.out.println("fruits: " + fruitBox.getClass() + ": " + o + '\n');
+
+        System.out.println("Apple Box weight: " + appleBox.getClass().getName() + ": " + appleBox.getBoxWeight() + " " + appleBox + '\n');
+
+        Box<Orange> orangeBox = new Box<>();
+        orangeBox.putinBox(orange);
+
+        System.out.println("Orange Box weight: " + appleBox.getClass().getCanonicalName() + ": " + orangeBox.getBoxWeight() + " " + orangeBox + '\n');
+
+        System.out.println("orangeBox weight = " + orangeBox.getBoxWeight() + '\n' + "appleBox weight  = " + appleBox.getBoxWeight());
+
+//        if (appleBox.compare(orangeBox) == 1) {
+//            System.out.println(appleBox.compare(orangeBox) + " Коробка яблок тяжелее коробки апельсинов");
+//            System.out.println(appleBox.getBoxWeight() + " > " + orangeBox.getBoxWeight());
+//        } else if (appleBox.compare(orangeBox) == -1) {
+//            System.out.println(appleBox.compare(orangeBox) + " Коробка апельсинов тяжелее коробки яблок");
+//            System.out.println(appleBox.getBoxWeight() + " < " + orangeBox.getBoxWeight());
+//        } else {
+//            System.out.println("Вес коробок одинаковый");
+//            System.out.println(appleBox.getBoxWeight() + " = " + orangeBox.getBoxWeight());
+//        }
+
+        compBox(appleBox, orangeBox);
+    }
+    public static void compBox(Box<?> o, Box<?> o1){
+        if (o.compare(o1) == 1) {
+            System.out.println(o.compare(o1) + " Коробка яблок тяжелее коробки апельсинов");
+            System.out.println(o.getBoxWeight() + " > " + o1.getBoxWeight());
+        } else if (o.compare(o1) == -1) {
+            System.out.println(o.compare(o1) + " Коробка апельсинов тяжелее коробки яблок");
+            System.out.println(o.getBoxWeight() + " < " + o1.getBoxWeight());
+        } else {
+            System.out.println("Вес коробок одинаковый");
+            System.out.println(o.getBoxWeight() + " = " + o1.getBoxWeight());
+        }
+    }
+
+}
